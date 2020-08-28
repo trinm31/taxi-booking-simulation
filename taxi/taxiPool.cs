@@ -8,50 +8,47 @@ namespace taxi
 	public class TaxiPool
 	{
 		public static List<DriverInformation> driverInfor = new List<DriverInformation>();
-		private const int EXPIRED_TIME_IN_MILISECOND = 1200; 
-		public int NUMBER_OF_TAXI;
+		private const int ExpiredTimeInMilisecond = 1200; 
+		public int NumberOfTaxi;
 
-		private static readonly IList<Taxi> available = new List<Taxi>();
-		private readonly IList<Taxi> inUse = new List<Taxi>();
+		private static readonly IList<Taxi> _available = new List<Taxi>();
+		private readonly IList<Taxi> _inUse = new List<Taxi>();
 
-		private int count = 0;
+		private int _count = 0;
 		private Boolean waiting_Conflict = false;
-		private static TaxiPool instance = null;
-		private string name;
-		private string id;
-		private int phone;
-		
+		private static TaxiPool _instance = null;
+
 		public static TaxiPool GetInstance()
 		{
-			if (instance == null)
+			if (_instance == null)
 			{
-				instance = new TaxiPool();
+				_instance = new TaxiPool();
 			}
 			else
 			{
 				Console.WriteLine("This is singleton!");
 			}
-			return instance;
+			return _instance;
 		}
 		public virtual Taxi Taketaxi()
 		{
 			lock (this)
 			{
 				Taxi taxi;
-				if (available.Count > 0)
+				if (_available.Count > 0)
 				{
-					taxi = available[0];
-					available.RemoveAt(0);
-					inUse.Add(taxi);
+					taxi = _available[0];
+					_available.RemoveAt(0);
+					_inUse.Add(taxi);
 					return taxi;
 				}
-				else if (count == NUMBER_OF_TAXI)
+				else if (_count == NumberOfTaxi)
 				{
 					this.WaitingUntilTaxiAvailable();
 					return Taketaxi();
 				}
 				taxi = this.CreateTaxi();
-				inUse.Add(taxi);
+				_inUse.Add(taxi);
 				return taxi;
 			}
 			
@@ -61,8 +58,8 @@ namespace taxi
 		{
 			lock (this)
 			{
-				inUse.Remove(taxi);
-				available.Add(taxi);
+				_inUse.Remove(taxi);
+				_available.Add(taxi);
 				Console.WriteLine(taxi.Name + " is free");
 			}
 		}
@@ -70,9 +67,9 @@ namespace taxi
 		private Taxi CreateTaxi()
 		{
 			waiting(200); // The time to create a taxi
-			Taxi taxi = new Taxi(driverInfor[count].ShowInfor());
+			Taxi taxi = new Taxi(driverInfor[_count].ShowInfor());
 			Console.WriteLine(taxi.Name + " is created");
-			count++;
+			_count++;
 			return taxi;
 		}
 
@@ -84,7 +81,7 @@ namespace taxi
 				throw new TaxiNotFoundException("No taxi available");
 			}
 			waiting_Conflict = true;
-			waiting(EXPIRED_TIME_IN_MILISECOND);
+			waiting(ExpiredTimeInMilisecond);
 		}
 
 		private void waiting(int numberOfSecond)

@@ -8,28 +8,24 @@ namespace taxi
     public class ClientThread
     {
         
-        private TaxiPool taxiPool;
+        private TaxiPool _taxiPool;
 
         public ClientThread(TaxiPool taxiPool)
         {
-            this.taxiPool = taxiPool;
+            this._taxiPool = taxiPool;
         }
 
-        public void Run()
-        {
-            takeATaxi();
-        }
-
-        private void takeATaxi()
+        
+        public void takeATaxi()
         {
             try
             {
                 Console.WriteLine("New client: " + Thread.CurrentThread.Name);
-                Taxi taxi = taxiPool.Taketaxi();
+                Taxi taxi = _taxiPool.Taketaxi();
 
                 Thread.Sleep(randInt(1000, 1500));
 
-                taxiPool.Release(taxi);
+                _taxiPool.Release(taxi);
                 
                 Console.WriteLine("Served the client: " + Thread.CurrentThread.Name);
             }

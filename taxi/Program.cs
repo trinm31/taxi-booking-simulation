@@ -16,7 +16,7 @@ namespace taxi
             List<ClientInformation> clientInfor = new List<ClientInformation>();
             
             Console.WriteLine("Input number of taxi");
-            taxiPool.NUMBER_OF_TAXI = Convert.ToInt32(Console.ReadLine());
+            taxiPool.NumberOfTaxi = Convert.ToInt32(Console.ReadLine());
             
             for (int i = 1; i <= NUM_OF_CLIENT; i++)
             {
@@ -33,7 +33,7 @@ namespace taxi
                 clientInfor.Add(clientInformation);
             }
             
-            for (int i = 1; i <= taxiPool.NUMBER_OF_TAXI; i++)
+            for (int i = 1; i <= taxiPool.NumberOfTaxi; i++)
             {
                 Console.WriteLine($"Input driver {i} id: ");
                 string id = Console.ReadLine();
@@ -52,7 +52,7 @@ namespace taxi
             for (int i = 1; i <= NUM_OF_CLIENT; i++)
             {
                 ClientThread client = new ClientThread(taxiPool);
-                ThreadStart threadStart = client.Run;
+                ThreadStart threadStart = client.takeATaxi;
                 Thread thread = new Thread(threadStart);
                 thread.Name = clientInfor[i-1].ShowInfor();
                 thread.Start();
