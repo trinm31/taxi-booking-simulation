@@ -1,0 +1,6 @@
+/Users/minhtri/RiderProjects/advanpro-test/taxi/bin/Debug/taxi.exe
+/Users/minhtri/RiderProjects/advanpro-test/taxi/bin/Debug/taxi.pdb
+/Users/minhtri/RiderProjects/advanpro-test/taxi/obj/Debug/taxi.csprojAssemblyReference.cache
+/Users/minhtri/RiderProjects/advanpro-test/taxi/obj/Debug/taxi.csproj.CoreCompileInputs.cache
+/Users/minhtri/RiderProjects/advanpro-test/taxi/obj/Debug/taxi.exe
+/Users/minhtri/RiderProjects/advanpro-test/taxi/obj/Debug/taxi.pdb
