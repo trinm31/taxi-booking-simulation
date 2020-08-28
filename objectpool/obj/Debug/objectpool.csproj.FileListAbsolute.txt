@@ -1,0 +1,6 @@
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/bin/Debug/objectpool.exe
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/bin/Debug/objectpool.pdb
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/obj/Debug/objectpool.csprojAssemblyReference.cache
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/obj/Debug/objectpool.csproj.CoreCompileInputs.cache
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/obj/Debug/objectpool.exe
+/Users/minhtri/RiderProjects/advanpro-test/objectpool/obj/Debug/objectpool.pdb

@@ -1,0 +1,6 @@
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/bin/Debug/advanpro_test.exe
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/bin/Debug/advanpro_test.pdb
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/obj/Debug/advanpro-test.csprojAssemblyReference.cache
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/obj/Debug/advanpro-test.csproj.CoreCompileInputs.cache
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/obj/Debug/advanpro_test.exe
+/Users/minhtri/RiderProjects/advanpro-test/advanpro-test/obj/Debug/advanpro_test.pdb
