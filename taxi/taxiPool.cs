@@ -7,17 +7,20 @@ namespace taxi
 {
 	public class TaxiPool
 	{
-		public static List<DriverInformation> driverInfor = new List<DriverInformation>();
-		private const int ExpiredTimeInMilisecond = 1200; 
+		public static List<DriverInformation> DriverInfor = new List<DriverInformation>();
+		private const int EXPIRED_TIME_MILISECOND = 1200; 
 		public int NumberOfTaxi;
 
 		private static readonly IList<Taxi> _available = new List<Taxi>();
 		private readonly IList<Taxi> _inUse = new List<Taxi>();
 
 		private int _count = 0;
-		private Boolean waiting_Conflict = false;
+		private Boolean _waitingConflict = false;
 		private static TaxiPool _instance = null;
 
+		private TaxiPool()
+		{
+		}
 		public static TaxiPool GetInstance()
 		{
 			if (_instance == null)
@@ -30,7 +33,7 @@ namespace taxi
 			}
 			return _instance;
 		}
-		public virtual Taxi Taketaxi()
+		public Taxi Taketaxi()
 		{
 			lock (this)
 			{
@@ -54,7 +57,7 @@ namespace taxi
 			
 		}
 
-		public virtual void Release(Taxi taxi)
+		public void Release(Taxi taxi)
 		{
 			lock (this)
 			{
@@ -66,8 +69,8 @@ namespace taxi
 
 		private Taxi CreateTaxi()
 		{
-			waiting(200); // The time to create a taxi
-			Taxi taxi = new Taxi(driverInfor[_count].ShowInfor());
+			Waiting(200); // The time to create a taxi
+			Taxi taxi = new Taxi(DriverInfor[_count].ShowInfor());
 			Console.WriteLine(taxi.Name + " is created");
 			_count++;
 			return taxi;
@@ -75,16 +78,16 @@ namespace taxi
 
 		private void WaitingUntilTaxiAvailable()
 		{
-			if (waiting_Conflict)
+			if (_waitingConflict)
 			{
-				waiting_Conflict = false ;
+				_waitingConflict = false ;
 				throw new TaxiNotFoundException("No taxi available");
 			}
-			waiting_Conflict = true;
-			waiting(ExpiredTimeInMilisecond);
+			_waitingConflict = true;
+			Waiting(EXPIRED_TIME_MILISECOND);
 		}
 
-		private void waiting(int numberOfSecond)
+		private void Waiting(int numberOfSecond)
 		{
 			try
 			{

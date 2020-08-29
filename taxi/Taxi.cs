@@ -10,7 +10,7 @@ namespace taxi
             this._name = name;
         }
 
-        public virtual string Name
+        public string Name
         {
             get
             {

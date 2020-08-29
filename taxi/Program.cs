@@ -13,8 +13,6 @@ namespace taxi
             
             TaxiPool taxiPool = TaxiPool.GetInstance();
             
-            List<ClientInformation> clientInfor = new List<ClientInformation>();
-            
             Console.WriteLine("Input number of taxi");
             taxiPool.NumberOfTaxi = Convert.ToInt32(Console.ReadLine());
             
@@ -30,7 +28,7 @@ namespace taxi
                 int phone = Convert.ToInt32(Console.ReadLine());
                 
                 ClientInformation clientInformation = new ClientInformation(id,name,phone);
-                clientInfor.Add(clientInformation);
+                Client.clientInfor.Add(clientInformation);
             }
             
             for (int i = 1; i <= taxiPool.NumberOfTaxi; i++)
@@ -45,17 +43,17 @@ namespace taxi
                 int phone = Convert.ToInt32(Console.ReadLine());
                 
                 DriverInformation driverInformation = new DriverInformation(id,name,phone);
-                TaxiPool.driverInfor.Add(driverInformation);
+                TaxiPool.DriverInfor.Add(driverInformation);
             }
 
             Console.WriteLine("----------------------------------------------------------");
             
             for (int i = 1; i <= numOfClient; i++)
             {
-                ClientThread client = new ClientThread(taxiPool);
-                ThreadStart threadStart = client.takeATaxi;
+                Client client = new Client(taxiPool);
+                ThreadStart threadStart = client.TakeATaxi;
                 Thread thread = new Thread(threadStart);
-                thread.Name = clientInfor[i-1].ShowInfor();
+                thread.Name = Client.clientInfor[i-1].ShowInfor();
                 thread.Start();
             }
         }

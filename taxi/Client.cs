@@ -5,25 +5,25 @@ using System.Threading;
 namespace taxi
 {
 
-    public class ClientThread
+    public class Client
     {
-        
+        public static List<ClientInformation> clientInfor = new List<ClientInformation>();
         private TaxiPool _taxiPool;
 
-        public ClientThread(TaxiPool taxiPool)
+        public Client(TaxiPool taxiPool)
         {
             this._taxiPool = taxiPool;
         }
 
         
-        public void takeATaxi()
+        public void TakeATaxi()
         {
             try
             {
                 Console.WriteLine("New client: " + Thread.CurrentThread.Name);
                 Taxi taxi = _taxiPool.Taketaxi();
 
-                Thread.Sleep(randInt(1000, 1500));
+                Thread.Sleep(RandInt(1000, 1500));
 
                 _taxiPool.Release(taxi);
                 
@@ -35,7 +35,7 @@ namespace taxi
             }
         }
 
-        public static int randInt(int min, int max)
+        public int RandInt(int min, int max)
         {
             return (new Random()).Next((max - min) + 1) + min;
         }
