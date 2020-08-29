@@ -2,10 +2,16 @@ namespace taxi
 {
     public abstract class Information
     {
-        public abstract string Id { get; set; }
-        public abstract string Name{ get; set; }
-        public abstract int Phone{ get; set; }
-        
+        protected string Id;
+        protected string Name;
+        protected int Phone;
+
+        public Information(string id, string name, int phone)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Phone = phone;
+        }
         public abstract string ShowInfor();
     }
 }

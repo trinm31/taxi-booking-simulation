@@ -9,7 +9,7 @@ namespace taxi
         public static void Main(string[] args)
         {
             Console.WriteLine("Input Number of client");
-            int NUM_OF_CLIENT = Convert.ToInt32(Console.ReadLine());
+            int numOfClient = Convert.ToInt32(Console.ReadLine());
             
             TaxiPool taxiPool = TaxiPool.GetInstance();
             
@@ -18,7 +18,7 @@ namespace taxi
             Console.WriteLine("Input number of taxi");
             taxiPool.NumberOfTaxi = Convert.ToInt32(Console.ReadLine());
             
-            for (int i = 1; i <= NUM_OF_CLIENT; i++)
+            for (int i = 1; i <= numOfClient; i++)
             {
                 Console.WriteLine($"Input client {i} id: ");
                 string id = Console.ReadLine();
@@ -43,13 +43,14 @@ namespace taxi
 			         
                 Console.WriteLine($"Input driver {i} phone: ");
                 int phone = Convert.ToInt32(Console.ReadLine());
+                
                 DriverInformation driverInformation = new DriverInformation(id,name,phone);
                 TaxiPool.driverInfor.Add(driverInformation);
             }
 
             Console.WriteLine("----------------------------------------------------------");
             
-            for (int i = 1; i <= NUM_OF_CLIENT; i++)
+            for (int i = 1; i <= numOfClient; i++)
             {
                 ClientThread client = new ClientThread(taxiPool);
                 ThreadStart threadStart = client.takeATaxi;
