@@ -43,7 +43,7 @@ namespace taxi
                 int phone = Convert.ToInt32(Console.ReadLine());
                 
                 DriverInformation driverInformation = new DriverInformation(id,name,phone);
-                TaxiPool.DriverInfor.Add(driverInformation);
+                Taxi.DriverInfor.Add(driverInformation);
             }
 
             Console.WriteLine("----------------------------------------------------------");

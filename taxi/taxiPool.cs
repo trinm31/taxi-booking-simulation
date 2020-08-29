@@ -7,7 +7,7 @@ namespace taxi
 {
 	public class TaxiPool
 	{
-		public static List<DriverInformation> DriverInfor = new List<DriverInformation>();
+		
 		private const int EXPIRED_TIME_MILISECOND = 1200; 
 		public int NumberOfTaxi;
 
@@ -70,7 +70,7 @@ namespace taxi
 		private Taxi CreateTaxi()
 		{
 			Waiting(200); // The time to create a taxi
-			Taxi taxi = new Taxi(DriverInfor[_count].ShowInfor());
+			Taxi taxi = new Taxi(Taxi.DriverInfor[_count].ShowInfor());
 			Console.WriteLine(taxi.Name + " is created");
 			_count++;
 			return taxi;

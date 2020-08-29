@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+
 namespace taxi
 {
     public class Taxi
     {
-
+        public static List<DriverInformation> DriverInfor = new List<DriverInformation>();
+        
         private string _name;
 
         public Taxi(string name)
