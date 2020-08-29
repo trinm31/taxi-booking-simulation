@@ -39,7 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="ClientInformation.cs" />
-        <Compile Include="ClientThread.cs" />
+        <Compile Include="Client.cs" />
         <Compile Include="DriverInformation.cs" />
         <Compile Include="IInformation.cs" />
         <Compile Include="Program.cs" />

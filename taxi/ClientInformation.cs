@@ -1,18 +1,18 @@
 namespace taxi
 {
-    public class ClientInformation: IInformation
+    public class ClientInformation: Information
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public int Phone { get; set; }
-        
-        public ClientInformation (string id, string name, int phone)
+        public override string Id { get; set; }
+        public override string Name { get; set; }
+        public override int Phone { get; set; }
+
+        public ClientInformation(string id, string name, int phone)
         {
             this.Id = id;
             this.Name = name;
             this.Phone = phone;
         }
-        public string ShowInfor()
+        public override string ShowInfor()
         {
             return $"This is client {Name} phone number {Phone} and id {Id}";
         }
