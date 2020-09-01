@@ -1,0 +1,6 @@
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/bin/Debug/ProtoType.exe
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/bin/Debug/ProtoType.pdb
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/obj/Debug/ProtoType.csprojAssemblyReference.cache
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/obj/Debug/ProtoType.csproj.CoreCompileInputs.cache
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/obj/Debug/ProtoType.exe
+/Users/minhtri/RiderProjects/advanpro-test/ProtoType/obj/Debug/ProtoType.pdb
