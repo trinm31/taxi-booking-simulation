@@ -4,7 +4,6 @@ using System.Threading;
 
 namespace taxi
 {
-
     public class Client
     {
         public static List<ClientInformation> clientInfor = new List<ClientInformation>();

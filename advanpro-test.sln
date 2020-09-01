@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "taxi", "taxi\taxi.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "objectpool", "objectpool\objectpool.csproj", "{B84BC6AE-4714-4475-B539-0EFC3BF8CBD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoType", "ProtoType\ProtoType.csproj", "{248C14BE-7B1F-4F7B-B488-1CBD248ADB4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{B84BC6AE-4714-4475-B539-0EFC3BF8CBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B84BC6AE-4714-4475-B539-0EFC3BF8CBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B84BC6AE-4714-4475-B539-0EFC3BF8CBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248C14BE-7B1F-4F7B-B488-1CBD248ADB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248C14BE-7B1F-4F7B-B488-1CBD248ADB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248C14BE-7B1F-4F7B-B488-1CBD248ADB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248C14BE-7B1F-4F7B-B488-1CBD248ADB4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

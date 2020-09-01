@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using taxi;
 
-namespace taxi
+namespace ProtoType
 {
-    public class TaxiApp
+    internal class Program
     {
         public static void Main(string[] args)
-        {
-            Console.WriteLine("Input Number of client");
+        {Console.WriteLine("Input Number of client");
             int numOfClient = Convert.ToInt32(Console.ReadLine());
             
-            TaxiPool taxiPool = TaxiPool.GetInstance();
+            List<ClientInformation> clientInfor = new List<ClientInformation>();
+            List<DriverInformation> DriverInfor = new List<DriverInformation>();
             
             Console.WriteLine("Input number of taxi");
-            taxiPool.NumberOfTaxi = Convert.ToInt32(Console.ReadLine());
+            int numOfTaxi = Convert.ToInt32(Console.ReadLine());
             
             for (int i = 1; i <= numOfClient; i++)
             {
@@ -27,10 +29,10 @@ namespace taxi
                 int phone = Convert.ToInt32(Console.ReadLine());
                 
                 ClientInformation clientInformation = new ClientInformation(id,name,phone);
-                Client.clientInfor.Add(clientInformation);
+                clientInfor.Add(clientInformation);
             }
             
-            for (int i = 1; i <= taxiPool.NumberOfTaxi; i++)
+            for (int i = 1; i <= numOfTaxi; i++)
             {
                 Console.WriteLine($"Input driver {i} id: ");
                 string id = Console.ReadLine();
@@ -42,18 +44,18 @@ namespace taxi
                 int phone = Convert.ToInt32(Console.ReadLine());
                 
                 DriverInformation driverInformation = new DriverInformation(id,name,phone);
-                Taxi.DriverInfor.Add(driverInformation);
+                DriverInfor.Add(driverInformation);
             }
 
             Console.WriteLine("----------------------------------------------------------");
             
             for (int i = 1; i <= numOfClient; i++)
             {
-                Client client = new Client(taxiPool);
-                ThreadStart threadStart = client.TakeATaxi;
-                Thread thread = new Thread(threadStart);
-                thread.Name = Client.clientInfor[i-1].ShowInfor();
-                thread.Start();
+                Taxi taxi = new Taxi(DriverInfor[0].ShowInfor());
+                Taxi taxicopy = taxi.Clone();
+                taxicopy.Name = DriverInfor[i].ShowInfor();
+                string client = clientInfor[i - 1].ShowInfor();
+                Console.WriteLine($"Taxi: {taxi.Name} serve client: {client}");
             }
         }
     }
